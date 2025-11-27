@@ -28,14 +28,14 @@ export const ProductCard = ({ name, description, price, image }: ProductCardProp
       <CardContent className="p-4">
         <h3 className="font-semibold text-lg mb-2 line-clamp-1">{name}</h3>
         <p className="text-muted-foreground text-sm line-clamp-2 mb-3">
-          {description || "Premium quality product"}
+          {description || "Produto de qualidade premium"}
         </p>
-        <p className="text-2xl font-bold text-primary">${price.toFixed(2)}</p>
+        <p className="text-2xl font-bold text-primary">R$ {price.toFixed(2)}</p>
       </CardContent>
       <CardFooter className="p-4 pt-0">
         <Button className="w-full gap-2 group-hover:gap-3 transition-all">
           <ShoppingCart className="h-4 w-4" />
-          Add to Cart
+          Adicionar ao Carrinho
         </Button>
       </CardFooter>
     </Card>

@@ -11,8 +11,8 @@ import { User, Session } from "@supabase/supabase-js";
 import { ShoppingBag } from "lucide-react";
 import { z } from "zod";
 
-const emailSchema = z.string().email("Invalid email address");
-const passwordSchema = z.string().min(6, "Password must be at least 6 characters");
+const emailSchema = z.string().email("E-mail inválido");
+const passwordSchema = z.string().min(6, "A senha deve ter pelo menos 6 caracteres");
 
 const Auth = () => {
   const [email, setEmail] = useState("");
@@ -57,7 +57,7 @@ const Auth = () => {
 
     if (!emailValidation.success) {
       toast({
-        title: "Invalid Email",
+        title: "E-mail Inválido",
         description: emailValidation.error.errors[0].message,
         variant: "destructive",
       });
@@ -66,7 +66,7 @@ const Auth = () => {
 
     if (!passwordValidation.success) {
       toast({
-        title: "Invalid Password",
+        title: "Senha Inválida",
         description: passwordValidation.error.errors[0].message,
         variant: "destructive",
       });
@@ -88,22 +88,22 @@ const Auth = () => {
 
       if (error) {
         toast({
-          title: "Sign Up Failed",
+          title: "Falha no Cadastro",
           description: error.message,
           variant: "destructive",
         });
       } else {
         toast({
-          title: "Success!",
-          description: "Account created successfully. You can now log in.",
+          title: "Sucesso!",
+          description: "Conta criada com sucesso. Você já pode fazer login.",
         });
         setEmail("");
         setPassword("");
       }
     } catch (error: any) {
       toast({
-        title: "Error",
-        description: error.message || "An unexpected error occurred",
+        title: "Erro",
+        description: error.message || "Ocorreu um erro inesperado",
         variant: "destructive",
       });
     } finally {
@@ -120,7 +120,7 @@ const Auth = () => {
 
     if (!emailValidation.success) {
       toast({
-        title: "Invalid Email",
+        title: "E-mail Inválido",
         description: emailValidation.error.errors[0].message,
         variant: "destructive",
       });
@@ -129,7 +129,7 @@ const Auth = () => {
 
     if (!passwordValidation.success) {
       toast({
-        title: "Invalid Password",
+        title: "Senha Inválida",
         description: passwordValidation.error.errors[0].message,
         variant: "destructive",
       });
@@ -146,20 +146,20 @@ const Auth = () => {
 
       if (error) {
         toast({
-          title: "Login Failed",
+          title: "Falha no Login",
           description: error.message,
           variant: "destructive",
         });
       } else {
         toast({
-          title: "Welcome back!",
-          description: "You have successfully logged in.",
+          title: "Bem-vindo de volta!",
+          description: "Login realizado com sucesso.",
         });
       }
     } catch (error: any) {
       toast({
-        title: "Error",
-        description: error.message || "An unexpected error occurred",
+        title: "Erro",
+        description: error.message || "Ocorreu um erro inesperado",
         variant: "destructive",
       });
     } finally {
@@ -177,36 +177,36 @@ const Auth = () => {
               ShopHub
             </span>
           </div>
-          <p className="text-muted-foreground">Welcome! Sign in or create an account</p>
+          <p className="text-muted-foreground">Bem-vindo! Entre ou crie uma conta</p>
         </div>
 
         <Card>
           <CardHeader>
-            <CardTitle>Authentication</CardTitle>
-            <CardDescription>Enter your email and password to continue</CardDescription>
+            <CardTitle>Autenticação</CardTitle>
+            <CardDescription>Digite seu e-mail e senha para continuar</CardDescription>
           </CardHeader>
           <Tabs defaultValue="login" className="w-full">
             <TabsList className="grid w-full grid-cols-2">
-              <TabsTrigger value="login">Login</TabsTrigger>
-              <TabsTrigger value="signup">Sign Up</TabsTrigger>
+              <TabsTrigger value="login">Entrar</TabsTrigger>
+              <TabsTrigger value="signup">Cadastrar</TabsTrigger>
             </TabsList>
             
             <TabsContent value="login">
               <form onSubmit={handleSignIn}>
                 <CardContent className="space-y-4">
                   <div className="space-y-2">
-                    <Label htmlFor="login-email">Email</Label>
+                    <Label htmlFor="login-email">E-mail</Label>
                     <Input
                       id="login-email"
                       type="email"
-                      placeholder="you@example.com"
+                      placeholder="voce@exemplo.com"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       required
                     />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="login-password">Password</Label>
+                    <Label htmlFor="login-password">Senha</Label>
                     <Input
                       id="login-password"
                       type="password"
@@ -219,7 +219,7 @@ const Auth = () => {
                 </CardContent>
                 <CardFooter>
                   <Button type="submit" className="w-full" disabled={loading}>
-                    {loading ? "Loading..." : "Sign In"}
+                    {loading ? "Carregando..." : "Entrar"}
                   </Button>
                 </CardFooter>
               </form>
@@ -229,18 +229,18 @@ const Auth = () => {
               <form onSubmit={handleSignUp}>
                 <CardContent className="space-y-4">
                   <div className="space-y-2">
-                    <Label htmlFor="signup-email">Email</Label>
+                    <Label htmlFor="signup-email">E-mail</Label>
                     <Input
                       id="signup-email"
                       type="email"
-                      placeholder="you@example.com"
+                      placeholder="voce@exemplo.com"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       required
                     />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="signup-password">Password</Label>
+                    <Label htmlFor="signup-password">Senha</Label>
                     <Input
                       id="signup-password"
                       type="password"
@@ -253,7 +253,7 @@ const Auth = () => {
                 </CardContent>
                 <CardFooter>
                   <Button type="submit" className="w-full" disabled={loading}>
-                    {loading ? "Loading..." : "Create Account"}
+                    {loading ? "Carregando..." : "Criar Conta"}
                   </Button>
                 </CardFooter>
               </form>
