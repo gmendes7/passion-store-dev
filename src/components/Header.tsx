@@ -48,16 +48,16 @@ export const Header = () => {
             {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center gap-8">
               <Link to="/" className="text-foreground hover:text-primary transition-colors font-medium">
-                Home
+                Início
               </Link>
               <Link to="/" className="text-foreground hover:text-primary transition-colors font-medium">
-                Products
+                Produtos
               </Link>
               <Link to="/" className="text-foreground hover:text-primary transition-colors font-medium">
-                About
+                Sobre
               </Link>
               <Link to="/" className="text-foreground hover:text-primary transition-colors font-medium">
-                Contact
+                Contato
               </Link>
             </nav>
 
@@ -67,14 +67,14 @@ export const Header = () => {
                 <div className="flex items-center gap-4">
                   <span className="text-sm text-muted-foreground">{user.email}</span>
                   <Button onClick={handleLogout} variant="outline" size="sm">
-                    Logout
+                    Sair
                   </Button>
                 </div>
               ) : (
                 <Button asChild size="sm" className="gap-2">
                   <Link to="/auth">
                     <User className="h-4 w-4" />
-                    Login
+                    Entrar
                   </Link>
                 </Button>
               )}
@@ -97,42 +97,42 @@ export const Header = () => {
                 className="block text-foreground hover:text-primary transition-colors font-medium"
                 onClick={() => setIsMenuOpen(false)}
               >
-                Home
+                Início
               </Link>
               <Link 
                 to="/" 
                 className="block text-foreground hover:text-primary transition-colors font-medium"
                 onClick={() => setIsMenuOpen(false)}
               >
-                Products
+                Produtos
               </Link>
               <Link 
                 to="/" 
                 className="block text-foreground hover:text-primary transition-colors font-medium"
                 onClick={() => setIsMenuOpen(false)}
               >
-                About
+                Sobre
               </Link>
               <Link 
                 to="/" 
                 className="block text-foreground hover:text-primary transition-colors font-medium"
                 onClick={() => setIsMenuOpen(false)}
               >
-                Contact
+                Contato
               </Link>
               <div className="pt-4 border-t">
                 {user ? (
                   <div className="space-y-2">
                     <p className="text-sm text-muted-foreground">{user.email}</p>
                     <Button onClick={handleLogout} variant="outline" size="sm" className="w-full">
-                      Logout
+                      Sair
                     </Button>
                   </div>
                 ) : (
                   <Button asChild size="sm" className="w-full gap-2">
                     <Link to="/auth" onClick={() => setIsMenuOpen(false)}>
                       <User className="h-4 w-4" />
-                      Login
+                      Entrar
                     </Link>
                   </Button>
                 )}

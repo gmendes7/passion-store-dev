@@ -12,10 +12,10 @@ export const Hero = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-2xl animate-fade-in">
             <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">
-              Discover Amazing Products
+              Descubra Produtos Incríveis
             </h1>
             <p className="text-lg md:text-xl text-white/90 mb-6">
-              Shop the finest selection of premium items at unbeatable prices
+              Compre a melhor seleção de itens premium com preços imbatíveis
             </p>
           </div>
         </div>

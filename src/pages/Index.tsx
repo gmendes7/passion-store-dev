@@ -35,7 +35,7 @@ const Index = () => {
       setProducts(data || []);
     } catch (error: any) {
       toast({
-        title: "Error loading products",
+        title: "Erro ao carregar produtos",
         description: error.message,
         variant: "destructive",
       });
@@ -51,15 +51,15 @@ const Index = () => {
       
       <main className="flex-1">
         <section className="container mx-auto px-4 py-12">
-          <h2 className="text-3xl font-bold mb-8 text-center">Featured Products</h2>
+          <h2 className="text-3xl font-bold mb-8 text-center">Produtos em Destaque</h2>
           
           {loading ? (
             <div className="text-center py-12">
-              <p className="text-muted-foreground">Loading products...</p>
+              <p className="text-muted-foreground">Carregando produtos...</p>
             </div>
           ) : products.length === 0 ? (
             <div className="text-center py-12">
-              <p className="text-muted-foreground">No products available</p>
+              <p className="text-muted-foreground">Nenhum produto disponível</p>
             </div>
           ) : (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
