@@ -1,0 +1,30 @@
+version: "3.8"
+services:
+  db:
+    image: postgres:16
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: secret
+      POSTGRES_DB: passion_store
+    volumes:
+      - ./php-backend/migrations:/docker-entrypoint-initdb.d:ro
+    ports:
+      - "5432:5432"
+
+  php:
+    build:
+      context: ./php-backend
+    depends_on:
+      - db
+    environment:
+      DB_HOST: db
+      DB_PORT: 5432
+      DB_NAME: passion_store
+      DB_USER: postgres
+      DB_PASS: secret
+    volumes:
+      - ./php-backend:/var/www/html:rw
+    ports:
+      - "8000:8000"
+    command: ["php", "-S", "0.0.0.0:8000", "-t", "public"]
